@@ -1,7 +1,21 @@
-node_modules
-.pytest_cache
-.terraform
-.terraform.tfstate.lock.info
-*.tfstate.backup
+# Terraform
+setup/terraform/.terraform/
+setup/terraform/*.tfstate
+setup/terraform/*.tfstate.*
+setup/terraform/.terraform.lock.hcl
+crash.log
+
+# Node
+node_modules/
+starter/frontend/build/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Secrets - never commit these
+*.pem
+.env
 credentials
-.pytest_cache
