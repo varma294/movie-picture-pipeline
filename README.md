@@ -1,3 +1,31 @@
+# Submission Evidence
+
+**Repository:** https://github.com/varma294/movie-picture-pipeline
+
+All 4 required GitHub Actions workflows are implemented and passing:
+- `.github/workflows/frontend-ci.yaml`
+- `.github/workflows/backend-ci.yaml`
+- `.github/workflows/frontend-cd.yaml`
+- `.github/workflows/backend-cd.yaml`
+
+### 1. Frontend deployed and functioning
+![Frontend live](screenshots/01-frontend-live.png)
+
+### 2. Backend API returning movie list
+![Backend API terminal](screenshots/02a-backend-api-response-terminal.png)
+![Backend API browser](screenshots/02b-backend-api-response-browser.png)
+
+### 3. All pipelines passing
+![All Actions green](screenshots/03-actions-all-green.png)
+
+### 4. Docker images pushed to ECR (SHA-tagged)
+![ECR images](screenshots/04-ecr-images.png)
+
+### 5. Pipeline correctly blocks failing tests
+![Pipeline failure proof](screenshots/05-pipeline-failure-proof.png)
+
+---
+
 # Movie Picture Pipeline
 
 You've been brought on as the DevOps resource for a development team that manages a web application that is a catalog of Movie Picture movies. They're in dire need of automating their development workflows in hopes of accelerating their release cycle. They'd like to use Github Actions to automate testing, building and deploying their applications to an existing Kubernetes cluster.
