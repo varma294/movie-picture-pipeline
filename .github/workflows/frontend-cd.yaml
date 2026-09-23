@@ -139,3 +139,13 @@ jobs:
           kustomize build | kubectl apply -f -
           kubectl rollout status deployment/frontend --timeout=300s
           kubectl get svc -A
+
+      - name: Verify Kubernetes deployment
+        run: |
+          echo "----- Logging - kubectl describe deploy ----- "
+          kubectl describe deploy frontend
+
+      - name: Verify Frontend ECR image
+        run: |
+          echo "----- Logging - Frontend ECR Image Details ----- "
+          AWS_PAGER="" aws ecr describe-images --repository-name frontend --region us-east-1 --query 'sort_by(imageDetails,&imagePushedAt)[-1].{Tags:imageTags,Digest:imageDigest,PushedAt:imagePushedAt}' --output table
