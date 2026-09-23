@@ -12,17 +12,30 @@ All 4 required GitHub Actions workflows are implemented and passing:
 ![Frontend live](screenshots/01-frontend-live.png)
 
 ### 2. Backend API returning movie list
-![Backend API terminal](screenshots/02a-backend-api-response-terminal.png)
-![Backend API browser](screenshots/02b-backend-api-response-browser.png)
+![Backend API response](screenshots/02-backend-api-response.png)
 
-### 3. All pipelines passing
-![All Actions green](screenshots/03-actions-all-green.png)
+### 3. Backend CD - verification steps (proof of authenticity)
+`kubectl describe deploy backend` confirms the live deployment is running the image with the matching commit SHA:
+![Backend deployment verification](screenshots/03-backend-verify-deploy.png)
 
-### 4. Docker images pushed to ECR (SHA-tagged)
-![ECR images](screenshots/04-ecr-images.png)
+`aws ecr describe-images` confirms the pushed image's digest and tag:
+![Backend ECR verification](screenshots/04-backend-verify-ecr.png)
 
-### 5. Pipeline correctly blocks failing tests
-![Pipeline failure proof](screenshots/05-pipeline-failure-proof.png)
+### 4. Frontend CD - verification steps (proof of authenticity)
+`kubectl describe deploy frontend` confirms the live deployment is running the image with the matching commit SHA:
+![Frontend deployment verification](screenshots/05-frontend-verify-deploy.png)
+
+`aws ecr describe-images` confirms the pushed image's digest and tag:
+![Frontend ECR verification](screenshots/06-frontend-verify-ecr.png)
+
+### 5. All pipelines passing
+![All Actions green](screenshots/07-actions-all-green.png)
+
+### 6. Docker images pushed to ECR (SHA-tagged)
+![ECR images](screenshots/08-ecr-images.png)
+
+### 7. Pipeline correctly blocks failing tests
+![Pipeline failure proof](screenshots/09-pipeline-failure-proof.png)
 
 ---
 
